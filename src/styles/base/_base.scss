@@ -3,7 +3,19 @@ html {
 }
 body {
   background: $light-grey;
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   font-size: $m-size;
   color: $off-dark;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.is-active {
+  font-weight: bold;
 }
