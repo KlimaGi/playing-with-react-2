@@ -15,25 +15,37 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-database.ref().set({
-  name: "Giedre",
-  age: 31,
-  location: {
-    city: "Vilnius",
-    country: "Lithuania",
-  },
-});
+database
+  .ref()
+  .set({
+    name: "Giedre",
+    age: 31,
+    location: {
+      city: "Vilnius",
+      country: "Lithuania",
+    },
+  })
+  .then(() => {
+    console.log("Data is saved!");
+  })
+  .catch((error) => {
+    console.log("This failed.", error);
+  });
 
 //database.ref().set("This is my data.");
 
-database.ref("age").set(33);
-database.ref("location/city").set("Juodkrante");
-database.ref("attributes").set({
-  height: 164,
-  weight: 60,
-});
-database.ref("books").set({
-  favorite: 2,
-  forWork: 100,
-});
-database.ref("books/favorite").set("about node.js");
+// database.ref("age").set(33);
+// database.ref("location/city").set("Juodkrante");
+
+database
+  .ref("attributes")
+  .set({
+    height: 164,
+    weight: 60,
+  })
+  .then(() => {
+    console.log("Second set call worked.");
+  })
+  .catch((error) => {
+    console.log("Things didnt for the second error", error);
+  });
