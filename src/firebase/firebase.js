@@ -20,7 +20,11 @@ database
   .set({
     name: "Giedre",
     age: 31,
-    isSingle: false,
+    stressLevel: 6,
+    job: {
+      title: "Software developer",
+      company: "Google",
+    },
     location: {
       city: "Vilnius",
       country: "Lithuania",
@@ -32,6 +36,12 @@ database
   .catch((error) => {
     console.log("This failed.", error);
   });
+
+database.ref().update({
+  stressLevel: 9,
+  "job/company": "IBM",
+  "location/city": "Vilnius/remote",
+});
 
 // database
 //   .ref("isSingle")
