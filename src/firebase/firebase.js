@@ -20,6 +20,7 @@ database
   .set({
     name: "Giedre",
     age: 31,
+    isSingle: false,
     location: {
       city: "Vilnius",
       country: "Lithuania",
@@ -32,20 +33,12 @@ database
     console.log("This failed.", error);
   });
 
-//database.ref().set("This is my data.");
-
-// database.ref("age").set(33);
-// database.ref("location/city").set("Juodkrante");
-
-database
-  .ref("attributes")
-  .set({
-    height: 164,
-    weight: 60,
-  })
-  .then(() => {
-    console.log("Second set call worked.");
-  })
-  .catch((error) => {
-    console.log("Things didnt for the second error", error);
-  });
+// database
+//   .ref("isSingle")
+//   .remove()
+//   .then(() => {
+//     console.log("Remove succeeded.");
+//   })
+//   .catch((error) => {
+//     console.log("Remove failed: ", error);
+//   });
