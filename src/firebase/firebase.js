@@ -13,6 +13,27 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-firebase.database().ref().set({
+const database = firebase.database();
+
+database.ref().set({
   name: "Giedre",
+  age: 31,
+  location: {
+    city: "Vilnius",
+    country: "Lithuania",
+  },
 });
+
+//database.ref().set("This is my data.");
+
+database.ref("age").set(33);
+database.ref("location/city").set("Juodkrante");
+database.ref("attributes").set({
+  height: 164,
+  weight: 60,
+});
+database.ref("books").set({
+  favorite: 2,
+  forWork: 100,
+});
+database.ref("books/favorite").set("about node.js");
