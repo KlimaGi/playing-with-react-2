@@ -15,16 +15,39 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-database.ref().on(
-  "value",
-  (snapshot) => {
-    const val = snapshot.val();
-    console.log(`${val.name} is a ${val.job.title} at ${val.job.company}`);
-  },
-  (error) => {
-    console.log("Error with data fetching", error);
-  }
-);
+// database.ref("expenses").push({
+//   description: "watter bill",
+//   note: "",
+//   amount: 100,
+//   createdAt: 234234,
+// });
+
+database.ref("expenses/-Mfd3h_h3krWy26HtMVQ").update({
+  description: "present",
+  note: "",
+  amount: 300,
+});
+
+// database.ref("notes/-Mfd-Mff9X_2pdiO6wRG").remove();
+// database.ref("notes/-Mfd-Mff9X_2pdiO6wRG").update({
+//   body: "Ride a bike",
+// });
+
+// database.ref("notes").push({
+//   title: "Course Topics",
+//   body: "tdd, TypeScript, Node.js",
+// });
+
+// database.ref().on(
+//   "value",
+//   (snapshot) => {
+//     const val = snapshot.val();
+//     console.log(`${val.name} is a ${val.job.title} at ${val.job.company}`);
+//   },
+//   (error) => {
+//     console.log("Error with data fetching", error);
+//   }
+// );
 
 // database
 //   .ref()
@@ -59,11 +82,11 @@ database.ref().on(
 //     console.log("This failed.", error);
 //   });
 
-database.ref().update({
-  stressLevel: 9,
-  "job/company": "IBM",
-  "location/city": "Vilnius/remote",
-});
+// database.ref().update({
+//   stressLevel: 9,
+//   "job/company": "IBM",
+//   "location/city": "Vilnius/remote",
+// });
 
 // database
 //   .ref("isSingle")
