@@ -15,18 +15,62 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-// database.ref("expenses").push({
-//   description: "watter bill",
-//   note: "",
-//   amount: 100,
-//   createdAt: 234234,
+// child_removed
+database.ref("expenses").on("child_removed", (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
+});
+
+//child_changed
+database.ref("expenses").on("child_changed", (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
+});
+
+//child_added - gets called for new ones and for existing ones
+database.ref("expenses").on("child_added", (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
+});
+
+// database.ref("expenses").on("value", (snapshot) => {
+//   const expenses = [];
+
+//   snapshot.forEach((childSnapshot) => {
+//     expenses.push({
+//       id: childSnapshot.key,
+//       ...childSnapshot.val(),
+//     });
+//   });
+
+//   console.log(expenses);
 // });
 
-database.ref("expenses/-Mfd3h_h3krWy26HtMVQ").update({
-  description: "present",
+// database
+//   .ref("expenses")
+//   .once("value")
+//   .then((snapshot) => {
+//     const expenses = [];
+
+//     snapshot.forEach((childSnapshot) => {
+//       expenses.push({
+//         id: childSnapshot.key,
+//         ...childSnapshot.val(),
+//       });
+//     });
+
+//     console.log(expenses);
+//   });
+
+database.ref("expenses").push({
+  description: "workation",
   note: "",
-  amount: 300,
+  amount: 10200,
+  createdAt: 2364234,
 });
+
+// database.ref("expenses/-Mfd3h_h3krWy26HtMVQ").update({
+//   description: "present",
+//   note: "",
+//   amount: 300,
+// });
 
 // database.ref("notes/-Mfd-Mff9X_2pdiO6wRG").remove();
 // database.ref("notes/-Mfd-Mff9X_2pdiO6wRG").update({
