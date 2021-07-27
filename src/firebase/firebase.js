@@ -15,27 +15,49 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-database
-  .ref()
-  .set({
-    name: "Giedre",
-    age: 31,
-    stressLevel: 6,
-    job: {
-      title: "Software developer",
-      company: "Google",
-    },
-    location: {
-      city: "Vilnius",
-      country: "Lithuania",
-    },
-  })
-  .then(() => {
-    console.log("Data is saved!");
-  })
-  .catch((error) => {
-    console.log("This failed.", error);
-  });
+database.ref().on(
+  "value",
+  (snapshot) => {
+    const val = snapshot.val();
+    console.log(`${val.name} is a ${val.job.title} at ${val.job.company}`);
+  },
+  (error) => {
+    console.log("Error with data fetching", error);
+  }
+);
+
+// database
+//   .ref()
+//   .once("value")
+//   .then((snapshot) => {
+//     const val = snapshot.val();
+//     console.log(val);
+//   })
+//   .catch((error) => {
+//     console.log("Error fetching data", error);
+//   });
+
+// database
+//   .ref()
+//   .set({
+//     name: "Giedre",
+//     age: 31,
+//     stressLevel: 6,
+//     job: {
+//       title: "Software developer",
+//       company: "Google",
+//     },
+//     location: {
+//       city: "Vilnius",
+//       country: "Lithuania",
+//     },
+//   })
+//   .then(() => {
+//     console.log("Data is saved!");
+//   })
+//   .catch((error) => {
+//     console.log("This failed.", error);
+//   });
 
 database.ref().update({
   stressLevel: 9,
