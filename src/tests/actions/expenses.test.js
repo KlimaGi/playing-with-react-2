@@ -67,6 +67,8 @@ test("should add expense to database and store", (done) => {
 });
 
 test("should add expense with defaults to database and store", (done) => {
+  global.Promise = require.requireActual("promise");
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
   const store = createMockStore({});
   const expenseDefaults = {
     description: "",
