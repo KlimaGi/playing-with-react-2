@@ -1,6 +1,10 @@
 {
   "name": "expensify-app-again",
   "version": "1.0.0",
+  "engines": {
+    "node": "15.5.1",
+    "yarn": "1.22.10"
+  },
   "main": "index.js",
   "author": "Giedre",
   "license": "MIT",
