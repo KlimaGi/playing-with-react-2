@@ -1,16 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
 import database from "../firebase/firebase";
-//already doing
-// component calls action generator
-// action generator returns object
-// component dispatches object
-// redux store changes
-
-//better do
-// components calls action generator
-// action generator returns function
-// component dispatches function (?) add modules
-// functions runs (has the ability to dispatch other actions and do whatever it wants)
 
 // ADD_EXPENSE
 export const addExpense = (expense) => ({
@@ -47,6 +36,17 @@ export const removeExpense = ({ id } = {}) => ({
   type: "REMOVE_EXPENSE",
   id,
 });
+
+export const startRemoveExpense = ({ id } = {}) => {
+  return (dispatch) => {
+    return database
+      .ref(`expenses/${id}`)
+      .remove()
+      .then(() => {
+        dispatch(removeExpense({ id }));
+      });
+  };
+};
 
 // EDIT_EXPENSE
 export const editExpense = (id, updates) => ({
