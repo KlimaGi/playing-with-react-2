@@ -2,9 +2,16 @@
   background: $off-dark;
   border: none;
   color: $light-grey;
+  display: inline-block;
   font-family: "Roboto Slab", sans-serif;
   font-size: $font-size-large;
   font-weight: 300;
+  line-height: 1;
   padding: $s-size $m-size;
   border-radius: 3px;
+  text-decoration: none;
+}
+
+.button--link {
+  background: none;
 }
