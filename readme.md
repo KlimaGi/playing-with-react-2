@@ -1,2 +1,2 @@
-User can login with google acount. Users can add some notes, those will be saved in the database.
+Users can log in with a google account. Users can add some notes, those will be saved in the database.
 https://react-course-again-expensify.herokuapp.com/
