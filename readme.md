@@ -1,7 +1,2 @@
-# Git Commands
-
-git init - Create a new git repo
-git status - View the changes to project code
-git add - Add files to staging area
-git commit - Creates a new commit with files from staging area
-git log - View recent commits
+User can login with google acount. Users can add some notes, those will be saved in the database.
+https://react-course-again-expensify.herokuapp.com/
